@@ -17,13 +17,13 @@ def knn_distance(arr, q, k):
         for i in range(left, right):
             if abs(arr[i] - q) < pivot_distance:
                 arr[fill_pointer], arr[i] = arr[i], arr[fill_pointer]
-                fill_ptr += 1
+                fill_pointer += 1
 
         arr[fill_pointer], arr[right] = arr[right], arr[fill_pointer]
 
         if fill_pointer == target_index:
             return arr[fill_pointer]
-        elif fill_ptr > target_index:
+        elif fill_pointer > target_index:
             return select(left, fill_pointer - 1)
         else:
             return select(fill_pointer + 1, right)
