@@ -5,13 +5,12 @@ def biggest_descendent(graph, root, value, biggest=None):
     if biggest is None:
         biggest = {}
         
-    def solve(node):
-        max_val = value[node]
-        for neighbor in graph.neighbors(node):
-            max_val = max(max_val, solve(neighbor))
-        biggest[node] = max_val
-        return max_val
-
-    solve(root)
+    max_val = value[root]
     
-    return None
+    for neighbor in graph.neighbors(root):
+        biggest_descendent(graph, neighbor, value, biggest)
+        max_val = max(max_val, biggest[neighbor])
+        
+    biggest[root] = max_val
+    
+    return biggest
