@@ -1,3 +1,5 @@
+from dsc40graph import UndirectedGraph
+
 def slc(graph, d, k):
     nodes = list(graph.nodes)
     num_nodes = len(nodes)
